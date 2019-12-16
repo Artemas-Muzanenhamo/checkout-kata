@@ -13,5 +13,12 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation 'org.mockito:junit-jupiter:2.20.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:3.2.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
+    testImplementation 'org.assertj:assertj-core:3.14.0'
+}
+
+test {
+    useJUnitPlatform()
 }

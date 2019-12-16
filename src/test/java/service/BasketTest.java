@@ -1,30 +1,32 @@
 package service;
 
 import domain.Item;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import repository.BasketRepository;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-@RunWith(MockitoJUnitRunner.class)
-public class BasketTest {
+@ExtendWith(MockitoExtension.class)
+class BasketTest {
     private Basket basket;
     @Mock
     private BasketRepository basketRepository;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         basket = new Basket(basketRepository);
     }
 
     @Test
-    public void should_add_an_item_in_basket_with_price() {
+    @DisplayName("Should add an Item in basket with price")
+    void addItemsInBasketWithPrice() {
         Item itemA = new Item(90);
 
         basket.addItem(itemA);
@@ -33,7 +35,8 @@ public class BasketTest {
     }
 
     @Test
-    public void should_add_multiple_items_in_basket_with_their_prices() {
+    @DisplayName("Should add multiple Items in basket with their prices")
+    void addItemsWithPrices() {
         Item itemA = new Item(40);
         Item itemB = new Item(50);
         Item itemC = new Item(60);
